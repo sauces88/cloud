@@ -1,0 +1,23 @@
+server:
+  port: 3002
+
+spring:
+  application:
+    name: payment-service-3002
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://49.233.177.55:3306/cloud?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+    druid:  #druid为了测试数据库的连接，会报一个错误，不影响使用，强迫症患者加上以下配置
+      test-while-idle: false
+
+eureka:
+  instance:
+    instance-id: payment-service  #主机名称
+    prefer-ip-address: true #微服务访问路径hover时显示ip地址
+  client:
+    service-url:
+      defaultZone: http://localhost:3000/eureka/
